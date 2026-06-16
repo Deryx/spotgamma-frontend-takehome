@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 // --- Types & Constants ---
 const COLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
@@ -116,7 +116,7 @@ function App() {
       const result = new Function(`return (${mathExpression})`)();
       return typeof result === 'number' && !isNaN(result) ? result.toString() : '#VALUE!';
 
-    } catch {
+    } catch (err) {
       return '#ERR!';
     }
   };
